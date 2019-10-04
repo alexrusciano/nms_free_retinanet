@@ -1,0 +1,1 @@
+python visualize.py --dataset coco --coco_path data/coco --depth 50 --model checkpoints/coco_retinanet_800.pt --version 1 --vis_dir visualizations

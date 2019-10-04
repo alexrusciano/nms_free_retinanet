@@ -101,3 +101,15 @@ ENV/
 
 *.zip
 *.pt
+*.pth
+*.json
+*.txt
+
+# these are for debuging and testing
+visualizations/
+log_dir/
+images/
+debug/
+
+# download data oneself
+data/*

@@ -1,0 +1,1 @@
+python train.py --dataset coco --coco_path data/coco --epochs 1001 --depth 50 --batch_update 16 --batch_size 2 --testing 1 --weights checkpoints/coco_retinanet_700.pt --dup_version 1

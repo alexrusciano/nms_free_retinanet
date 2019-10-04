@@ -36,7 +36,6 @@ class CocoDataset(Dataset):
 
         self.coco      = COCO(os.path.join(self.root_dir, 'annotations', 'instances_' + self.set_name + '.json'))
         self.image_ids = self.coco.getImgIds()
-
         self.load_classes()
 
     def load_classes(self):
@@ -110,7 +109,6 @@ class CocoDataset(Dataset):
 
     def coco_label_to_label(self, coco_label):
         return self.coco_labels_inverse[coco_label]
-
 
     def label_to_coco_label(self, label):
         return self.coco_labels[label]
@@ -267,7 +265,6 @@ class CSVDataset(Dataset):
             # If a row contains only an image path, it's an image without annotations.
             if (x1, y1, x2, y2, class_name) == ('', '', '', '', ''):
                 continue
-
             x1 = self._parse(x1, int, 'line {}: malformed x1: {{}}'.format(line))
             y1 = self._parse(y1, int, 'line {}: malformed y1: {{}}'.format(line))
             x2 = self._parse(x2, int, 'line {}: malformed x2: {{}}'.format(line))
@@ -341,7 +338,7 @@ def collater(data):
 class Resizer(object):
     """Convert ndarrays in sample to Tensors."""
 
-    def __call__(self, sample, min_side=608, max_side=1024):
+    def __call__(self, sample, min_side=640, max_side=1024):
         image, annots = sample['img'], sample['annot']
 
         rows, cols, cns = image.shape
